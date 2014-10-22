@@ -24,7 +24,7 @@ namespace Pokermatic1000.Controllers
         public object Move()
         {
 
-            return null;
+            return "CALL";
         }
 
         [HttpPost]
