@@ -27,7 +27,7 @@ namespace Pokermatic1000.App.Strategies
                 _timesToBet = GetTimesToBet(ourCard);
                 _subStrategy = () =>
                     {
-                        var nextMove = _timesToBet == 0 ? OpponentMove.Call : OpponentMove.Bet;
+                        var nextMove = _timesToBet < 1 ? OpponentMove.Call : OpponentMove.Bet;
                         _timesToBet--;
                         return nextMove;
                     };

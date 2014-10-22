@@ -18,6 +18,9 @@ namespace Pokermatic1000.App
         private HighMidLowStrategy _strategy;
         private int _chipCount;
 
+        //     private HandLog currentHandLog;
+        //   private ICollection<HandLog> previousHands;
+
         public Games(string opponentName, int startingChipCount, int handLimit)
         {
             _opponentName = opponentName;
