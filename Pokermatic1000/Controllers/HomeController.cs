@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Pokermatic1000.App;
 
 namespace Pokermatic1000.Controllers
 {
@@ -16,6 +18,7 @@ namespace Pokermatic1000.Controllers
         [HttpPost]
         public object Start(string OPPONENT_NAME, int STARTING_CHIP_COUNT, int HAND_LIMIT)
         {
+            Trace.TraceInformation("Start({0}, {1}, {2})", OPPONENT_NAME, STARTING_CHIP_COUNT, HAND_LIMIT);
 
             return null;
         }
@@ -23,13 +26,15 @@ namespace Pokermatic1000.Controllers
         [HttpGet]
         public object Move()
         {
-
-            return "CALL";
+            var move = "CALL";
+            Trace.TraceInformation("Move <- {0}", move);
+            return move;
         }
 
         [HttpPost]
         public object Update(string COMMAND, string DATA)
         {
+            Trace.TraceInformation("Update({0}, {1})", COMMAND, DATA);
             return null;
         }
     }
