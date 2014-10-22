@@ -51,12 +51,14 @@ namespace Pokermatic1000.App
 
         internal OpponentMove GetMove()
         {
-            return OpponentMove.Call; ;
-        }
-
-        internal void Card(Card card)
-        {
-            throw new NotImplementedException();
+            if (_strategy != null)
+            {
+                return OpponentMove.Call;
+            }
+            else
+            {
+                return _strategy.Move();
+            }
         }
     }
 }

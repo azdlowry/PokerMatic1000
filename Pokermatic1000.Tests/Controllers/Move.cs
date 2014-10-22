@@ -11,12 +11,5 @@ namespace Pokermatic1000.Tests.Controllers
     [TestClass]
     public class MoveTests
     {
-        [TestMethod]
-        public void Move_returns_call()
-        {
-            var controller = new HomeController();
-
-            Assert.AreEqual("CALL", controller.Move());
-        }
     }
 }
