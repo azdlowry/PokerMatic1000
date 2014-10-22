@@ -22,20 +22,20 @@ namespace Pokermatic1000.Tests.Strategies
              
 
         [TestMethod]
-        public void King_Bets10TimesThenCalls()
+        public void King_Bets20TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CK,1);
 
-            MakeBet(strategy, 10);
+            MakeBet(strategy, 20);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
         [TestMethod]
-        public void Queen_BetsFiveTimesThenCalls()
+        public void Queen_Bets7TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CQ,1);
 
-            MakeBet(strategy, 5);
+            MakeBet(strategy, 7);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
@@ -51,7 +51,7 @@ namespace Pokermatic1000.Tests.Strategies
         [TestMethod]
         public void HiCard_Bets()
         {
-            var strategy = new HighMidLowStrategy(Card.CT, 1);
+            var strategy = new HighMidLowStrategy(Card.C7, 1);
             var actual = strategy.Move();
             Assert.AreEqual(OpponentMove.Bet, actual);
         }
@@ -59,7 +59,7 @@ namespace Pokermatic1000.Tests.Strategies
         [TestMethod]
         public void MidCard_Calls()
         {
-            var strategy = new HighMidLowStrategy(Card.C7, 1);
+            var strategy = new HighMidLowStrategy(Card.C5, 1);
 
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
