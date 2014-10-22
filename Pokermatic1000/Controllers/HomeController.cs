@@ -64,6 +64,9 @@ namespace Pokermatic1000.Controllers
                 case Command.ReceiveChips:
                     CurrentGame.OnReceiveChips(Convertor.ConvertToInt(DATA));
                     break;
+                case Command.GameOver:
+                    CurrentGame.OnGameOver();
+                    break;
                 case Command.Unknown:
 
                     break;
