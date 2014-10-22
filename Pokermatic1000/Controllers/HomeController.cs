@@ -24,8 +24,6 @@ namespace Pokermatic1000.Controllers
         {
             Trace.TraceInformation("Start({0}, {1}, {2})", OPPONENT_NAME, STARTING_CHIP_COUNT, HAND_LIMIT);
             CurrentGame = new Games(OPPONENT_NAME, STARTING_CHIP_COUNT, HAND_LIMIT);
-
-
             return null;
         }
 

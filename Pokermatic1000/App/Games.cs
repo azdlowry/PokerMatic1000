@@ -26,7 +26,8 @@ namespace Pokermatic1000.App
 
         internal void Card(Card card)
         {
-            _strategy = new HighMidLowStrategy(card);
+            _strategy = new StrategyFactory()
+                .Get(_opponentName,_startingChipCount,_handLimit,card) as HighMidLowStrategy;
         }
 
         internal void OnOpponentCard(Card card)
