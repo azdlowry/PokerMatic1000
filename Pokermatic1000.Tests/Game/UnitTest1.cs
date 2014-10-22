@@ -10,7 +10,7 @@ namespace Pokermatic1000.Tests.Game
         [TestMethod]
         public void CanBeConstructed()
         {
-            var g = new Games("",1,1);
+            var g = new Games("", 1, 1);
             Assert.IsNotNull(g);
         }
 
@@ -18,6 +18,7 @@ namespace Pokermatic1000.Tests.Game
         public void CanRunAGame()
         {
             var g = new Games("", 1, 1);
+            g.Card(Card.CT);
             g.OnReceiveButton();
             g.GetMove();
             g.OnOpponentMove(OpponentMove.Fold);
