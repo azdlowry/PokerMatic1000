@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Pokermatic1000.App.Strategies;
 
 namespace Pokermatic1000.App
 {
@@ -14,6 +15,7 @@ namespace Pokermatic1000.App
         private string _opponentName;
         private int _startingChipCount;
         private int _handLimit;
+        private HighMidLowStrategy _strategy;
 
         public Games(string opponentName, int startingChipCount, int handLimit)
         {
@@ -22,35 +24,34 @@ namespace Pokermatic1000.App
             _handLimit = handLimit;
         }
 
+        internal void Card(Card card)
+        {
+            _strategy = new HighMidLowStrategy(card);
+        }
 
         internal void OnOpponentCard(Card card)
         {
-            throw new NotImplementedException();
         }
 
         internal void OnOpponentMove(OpponentMove opponentMove)
         {
-            throw new NotImplementedException();
         }
 
         internal void OnPostBlind()
         {
-            throw new NotImplementedException();
         }
 
         internal void OnReceiveButton()
         {
-            throw new NotImplementedException();
         }
 
         internal void OnReceiveChips(int p)
         {
-            throw new NotImplementedException();
         }
 
-        internal object GetMove()
+        internal OpponentMove GetMove()
         {
-            throw new NotImplementedException();
+            return OpponentMove.Call; ;
         }
 
         internal void Card(Card card)
