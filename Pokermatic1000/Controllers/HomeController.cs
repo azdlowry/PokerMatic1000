@@ -10,6 +10,8 @@ namespace Pokermatic1000.Controllers
 {
     public class HomeController : Controller
     {
+        public static Games CurrentGame; 
+
         public ActionResult Index()
         {
             return View();
@@ -19,6 +21,8 @@ namespace Pokermatic1000.Controllers
         public object Start(string OPPONENT_NAME, int STARTING_CHIP_COUNT, int HAND_LIMIT)
         {
             Trace.TraceInformation("Start({0}, {1}, {2})", OPPONENT_NAME, STARTING_CHIP_COUNT, HAND_LIMIT);
+            CurrentGame = new Games(OPPONENT_NAME, STARTING_CHIP_COUNT, HAND_LIMIT);
+
 
             return null;
         }
