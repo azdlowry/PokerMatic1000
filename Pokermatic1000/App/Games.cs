@@ -16,12 +16,14 @@ namespace Pokermatic1000.App
         private int _startingChipCount;
         private int _handLimit;
         private HighMidLowStrategy _strategy;
+        private int _chipCount;
 
         public Games(string opponentName, int startingChipCount, int handLimit)
         {
             _opponentName = opponentName;
             _startingChipCount = startingChipCount;
             _handLimit = handLimit;
+            _chipCount = startingChipCount;
         }
 
         internal void Card(Card card)
@@ -48,6 +50,7 @@ namespace Pokermatic1000.App
 
         internal void OnReceiveChips(int p)
         {
+            _chipCount = _chipCount;
         }
 
         internal OpponentMove GetMove()
@@ -58,7 +61,12 @@ namespace Pokermatic1000.App
             }
             else
             {
-                return _strategy.Move();
+                var rtn = _strategy.Move();
+                if (rtn == OpponentMove.Bet)
+                {
+                    _chipCount--;
+                }
+                return rtn;
             }
         }
     }
