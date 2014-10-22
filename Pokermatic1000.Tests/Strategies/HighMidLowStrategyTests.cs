@@ -13,9 +13,51 @@ namespace Pokermatic1000.Tests.Strategies
     public class HighMidLowStrategyTests
     {
         [TestMethod]
-        public void HighCard_BetsOnceThenCalls()
+        public void Ace_Bets10TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CA);
+
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Call);
+        }
+
+        [TestMethod]
+        public void King_BetsOnceTimesThenCalls()
+        {
+            var strategy = new HighMidLowStrategy(Card.CK);
+
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Call);
+        }
+
+        [TestMethod]
+        public void Queen_BetsOnceTimesThenCalls()
+        {
+            var strategy = new HighMidLowStrategy(Card.CQ);
+
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Call);
+        }
+
+        [TestMethod]
+        public void Jack_BetsOnceTimesThenCalls()
+        {
+            var strategy = new HighMidLowStrategy(Card.CJ);
 
             Assert.AreEqual(strategy.Move(), OpponentMove.Bet);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
