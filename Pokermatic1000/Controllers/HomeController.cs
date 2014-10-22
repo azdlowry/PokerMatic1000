@@ -31,9 +31,10 @@ namespace Pokermatic1000.Controllers
 
         [HttpGet]
         public object Move()
-        {            
-            Trace.TraceInformation("Move <- {0}", move);
-            return CurrentGame.GetMove();
+        {          
+            var rtn = CurrentGame.GetMove();
+            Trace.TraceInformation("Move <- {0}", rtn );
+            return rtn;
         }
 
         [HttpPost]
@@ -43,6 +44,10 @@ namespace Pokermatic1000.Controllers
             var cmd = Convertor.ConvertToCommand(COMMAND);
             switch (cmd)
             {
+                case Command.Card:
+                    CurrentGame.Card(Convertor.ConvertToCard(DATA));
+                    break;
+
                 case Command.OpponentCard:
                     CurrentGame.OnOpponentCard(Convertor.ConvertToCard(DATA));
                     break;

@@ -52,5 +52,10 @@ namespace Pokermatic1000.App
         {
             throw new NotImplementedException();
         }
+
+        internal void Card(Card card)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
