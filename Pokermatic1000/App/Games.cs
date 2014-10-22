@@ -29,34 +29,34 @@ namespace Pokermatic1000.App
             _chipCount = startingChipCount;
         }
 
-        internal void Card(Card card)
+        public void Card(Card card)
         {
             _strategy = new StrategyFactory()
                 .Get(_opponentName, _startingChipCount, _handLimit, card, _chipCount) as HighMidLowStrategy;
         }
 
-        internal void OnOpponentCard(Card card)
+        public void OnOpponentCard(Card card)
         {
         }
 
-        internal void OnOpponentMove(OpponentMove opponentMove)
+        public void OnOpponentMove(OpponentMove opponentMove)
         {
         }
 
-        internal void OnPostBlind()
+        public void OnPostBlind()
         {
         }
 
-        internal void OnReceiveButton()
+        public void OnReceiveButton()
         {
         }
 
-        internal void OnReceiveChips(int p)
+        public void OnReceiveChips(int p)
         {
             _chipCount = _chipCount;
         }
 
-        internal OpponentMove GetMove()
+        public OpponentMove GetMove()
         {
             if (_strategy == null)
             {
