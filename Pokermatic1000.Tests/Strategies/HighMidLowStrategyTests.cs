@@ -31,7 +31,7 @@ namespace Pokermatic1000.Tests.Strategies
         }
 
         [TestMethod]
-        public void King_BetsOnceTimesThenCalls()
+        public void King_Bets5TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CK);
 
@@ -44,7 +44,7 @@ namespace Pokermatic1000.Tests.Strategies
         }
 
         [TestMethod]
-        public void Queen_BetsOnceTimesThenCalls()
+        public void Queen_Bets3TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CQ);
 
