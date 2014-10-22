@@ -98,7 +98,7 @@ namespace Pokermatic1000.App
                     totalOpponentBet.Key,
                     totalOpponentBet.Value,
                     _totalOpponentHands[totalOpponentBet.Key],
-                    totalOpponentBet.Value / _totalOpponentHands[totalOpponentBet.Key]);
+                    (double)totalOpponentBet.Value / _totalOpponentHands[totalOpponentBet.Key]);
             }
 
             Trace.TraceWarning("Game over {0} .. {1} chips remaining", _chipCount > 0 ? "WINNER" : "LOOSER", _chipCount);
