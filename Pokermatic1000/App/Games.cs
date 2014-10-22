@@ -16,7 +16,8 @@ namespace Pokermatic1000.App
         private readonly string _opponentName;
         private readonly int _startingChipCount;
         private readonly int _handLimit;
-        private HighMidLowStrategy _strategy;
+        private int _remainingHands;
+        private IStrategy _strategy;
         private int _chipCount;
 
         private HandLog _currentHandLog;
@@ -30,6 +31,7 @@ namespace Pokermatic1000.App
             _opponentName = opponentName;
             _startingChipCount = startingChipCount;
             _handLimit = handLimit;
+            _remainingHands = _handLimit;
             _chipCount = startingChipCount;
         }
 
@@ -37,8 +39,18 @@ namespace Pokermatic1000.App
         {
             UpdateHandLog();
 
-            _strategy = new StrategyFactory()
-                .Get(_opponentName, _startingChipCount, _handLimit, card, _chipCount) as HighMidLowStrategy;
+            _remainingHands--;
+
+            if ((_startingChipCount * 2) - _chipCount < _remainingHands)
+            {
+                _strategy = new SuddenDeathStrategy();
+            }
+            else
+            {
+                _strategy = new StrategyFactory()
+                    .Get(_opponentName, _startingChipCount, _handLimit, card, _chipCount) as HighMidLowStrategy;
+            }
+
 
             _currentHandLog = new HandLog() { OurCard = card };
         }

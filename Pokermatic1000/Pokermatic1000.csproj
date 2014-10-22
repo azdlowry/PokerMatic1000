@@ -149,6 +149,7 @@
     <Compile Include="App\HandLog.cs" />
     <Compile Include="App\Strategies\HighMidLowStrategy.cs" />
     <Compile Include="App\Strategies\StrategyFactory.cs" />
+    <Compile Include="App\SuddenDeathStrategy.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

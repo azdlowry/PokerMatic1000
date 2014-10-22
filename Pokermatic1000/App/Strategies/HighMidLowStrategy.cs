@@ -6,12 +6,17 @@ using System.Web;
 
 namespace Pokermatic1000.App.Strategies
 {
-    public class HighMidLowStrategy
+    public interface IStrategy
+    {
+        OpponentMove Move();
+    }
+
+    public class HighMidLowStrategy : IStrategy
     {
         private readonly Card _ourCard;
         private readonly Card _lowCard;
         private readonly Card _highCard;
-        private readonly Func<Card,OpponentMove> _subStrategy;
+        private readonly Func<Card, OpponentMove> _subStrategy;
         private int _timesToBet;
 
         public HighMidLowStrategy(Card ourCard, int chipCount, Card lowCard = Card.C3, Card highCard = Card.C6)
@@ -20,7 +25,7 @@ namespace Pokermatic1000.App.Strategies
             _lowCard = lowCard;
             _highCard = highCard;
             _chipCount = chipCount;
-            
+
 
             if (_ourCard > _highCard)
             {
@@ -39,11 +44,11 @@ namespace Pokermatic1000.App.Strategies
                 _subStrategy = AllwaysFold;
             }
 
-            
+
 
         }
 
-        private  OpponentMove MaybeBet(Card ourCard)
+        private OpponentMove MaybeBet(Card ourCard)
         {
             var nextMove = _timesToBet < 1 ? OpponentMove.Call : OpponentMove.Bet;
             _timesToBet--;
