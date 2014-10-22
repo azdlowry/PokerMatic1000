@@ -51,7 +51,7 @@ namespace Pokermatic1000.App
 
         internal OpponentMove GetMove()
         {
-            if (_strategy != null)
+            if (_strategy == null)
             {
                 return OpponentMove.Call;
             }
