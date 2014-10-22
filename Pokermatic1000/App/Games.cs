@@ -31,7 +31,7 @@ namespace Pokermatic1000.App
             _opponentName = opponentName;
             _startingChipCount = startingChipCount;
             _handLimit = handLimit;
-            _remainingHands = _handLimit;
+            _remainingHands = _handLimit / 2;
             _chipCount = startingChipCount;
         }
 
