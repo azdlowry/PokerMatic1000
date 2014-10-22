@@ -49,7 +49,7 @@ namespace Pokermatic1000.App.Strategies
             switch (ourCard)
             {
                 case Card.CA:
-                    return 10;
+                    return 100;
                 case Card.CK:
                     return 5;
                 case Card.CQ:
