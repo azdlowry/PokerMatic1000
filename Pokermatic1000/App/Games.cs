@@ -47,5 +47,10 @@ namespace Pokermatic1000.App
         {
             throw new NotImplementedException();
         }
+
+        internal object GetMove()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -31,10 +31,9 @@ namespace Pokermatic1000.Controllers
 
         [HttpGet]
         public object Move()
-        {
-            var move = "CALL";
+        {            
             Trace.TraceInformation("Move <- {0}", move);
-            return move;
+            return CurrentGame.GetMove();
         }
 
         [HttpPost]
