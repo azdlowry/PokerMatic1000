@@ -14,7 +14,7 @@ namespace Pokermatic1000.App.Strategies
         private readonly Func<Card,OpponentMove> _subStrategy;
         private int _timesToBet;
 
-        public HighMidLowStrategy(Card ourCard, int chipCount, Card lowCard = Card.C3, Card highCard = Card.CT)
+        public HighMidLowStrategy(Card ourCard, int chipCount, Card lowCard = Card.C3, Card highCard = Card.C9)
         {
             _ourCard = ourCard;
             _lowCard = lowCard;
@@ -64,15 +64,15 @@ namespace Pokermatic1000.App.Strategies
             switch (ourCard)
             {
                 case Card.CA:
-                    return 201;
+                    return 501;
                 case Card.CK:
-                    return 5;
+                    return 10;
                 case Card.CQ:
-                    return 3;
+                    return 5;
                 case Card.CJ:
-                    return 1;
+                    return 3;
                 default:
-                    return 0;
+                    return 1;
             }
         }
 

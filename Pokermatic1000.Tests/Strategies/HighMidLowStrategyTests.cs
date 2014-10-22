@@ -13,47 +13,53 @@ namespace Pokermatic1000.Tests.Strategies
     public class HighMidLowStrategyTests
     {
         [TestMethod]
-        public void Ace_Bets201TimesThenCalls()
+        public void Ace_Bets501TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CA,1);
-            MakeBet(strategy,201);
+            MakeBet(strategy,501);
+            Assert.AreEqual(strategy.Move(), OpponentMove.Call);
+        }
+             
+
+        [TestMethod]
+        public void King_Bets10TimesThenCalls()
+        {
+            var strategy = new HighMidLowStrategy(Card.CK,1);
+
+            MakeBet(strategy, 10);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
-      
-
         [TestMethod]
-        public void King_Bets5TimesThenCalls()
+        public void Queen_BetsFiveTimesThenCalls()
         {
-            var strategy = new HighMidLowStrategy(Card.CK,1);
+            var strategy = new HighMidLowStrategy(Card.CQ,1);
 
             MakeBet(strategy, 5);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
         [TestMethod]
-        public void Queen_Bets3TimesThenCalls()
+        public void Jack_BetsThreeTimesThenCalls()
         {
-            var strategy = new HighMidLowStrategy(Card.CQ,1);
+            var strategy = new HighMidLowStrategy(Card.CJ,1);
 
             MakeBet(strategy, 3);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
         [TestMethod]
-        public void Jack_BetsOnceTimesThenCalls()
+        public void HiCard_Bets()
         {
-            var strategy = new HighMidLowStrategy(Card.CJ,1);
-
-            MakeBet(strategy, 1);
-            Assert.AreEqual(strategy.Move(), OpponentMove.Call);
+            var strategy = new HighMidLowStrategy(Card.CT, 1);
+            var actual = strategy.Move();
+            Assert.AreEqual(OpponentMove.Bet, actual);
         }
-
 
         [TestMethod]
         public void MidCard_Calls()
         {
-            var strategy = new HighMidLowStrategy(Card.C7, 1, Card.C3, Card.CT);
+            var strategy = new HighMidLowStrategy(Card.C7, 1);
 
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }

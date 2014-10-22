@@ -35,7 +35,7 @@ namespace Pokermatic1000.App
         C6 = 6,
         C7 = 7,
         C8 = 8,
-        C9 = 8,
+        C9 = 9,
         CT = 10,
         CJ = 11,
         CQ = 12,
