@@ -49,10 +49,11 @@ namespace Pokermatic1000.Tests.Strategies
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
+
         [TestMethod]
         public void MidCard_Calls()
         {
-            var strategy = new HighMidLowStrategy(Card.C7,1);
+            var strategy = new HighMidLowStrategy(Card.C7, 1, Card.C3, Card.CT);
 
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
