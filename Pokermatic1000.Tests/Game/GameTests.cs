@@ -25,8 +25,15 @@ namespace Pokermatic1000.Tests.Game
             g.OnReceiveChips(2);
             g.Card(Card.C3);
             g.OnPostBlind();
-            g.GetMove();
             g.OnOpponentMove(OpponentMove.Call);
+            g.GetMove();
+            g.OnOpponentCard(Card.C7);
+            g.OnReceiveChips(2);
+            g.Card(Card.C3);
+            g.OnPostBlind();
+            g.GetMove();
+            g.OnOpponentMove(OpponentMove.Bet);
+            g.GetMove();
             g.OnOpponentCard(Card.C7);
             g.OnReceiveChips(2);
             g.OnGameOver();
