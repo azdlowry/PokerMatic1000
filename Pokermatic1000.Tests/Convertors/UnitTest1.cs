@@ -72,7 +72,7 @@ namespace Pokermatic1000.Tests.Convertors
             inputs["Q"] = Card.CQ;
             inputs["k"] = Card.CK;
             inputs["a"] = Card.CA;
-            
+
             foreach (var input in inputs.Keys)
             {
                 var result = new Convertor().ConvertToCard(input);
@@ -84,8 +84,14 @@ namespace Pokermatic1000.Tests.Convertors
         [TestMethod]
         public void Convert_to_Command()
         {
-            var inputs = new Dictionary<string, Card>();
+            var inputs = new Dictionary<string, Command>();
+            inputs["POST_BLIND"] = Command.PostBlind;
 
+            foreach (var input in inputs.Keys)
+            {
+                var result = new Convertor().ConvertToCommand(input);
+                Assert.AreEqual(inputs[input], result, "failed using " + input);
+            }
         }
 
     }

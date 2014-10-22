@@ -7,23 +7,22 @@ namespace Pokermatic1000.App
 {
     public enum Command
     {
-        Unknown = 0 ,
-        OpponentCard = 1 ,
-        ReceiveChips = 2 ,
+        Unknown = 0,
+        OpponentCard = 1,
+        ReceiveChips = 2,
         OpponentMove = 3,
-        Card = 4 ,
-        PostBlind = 5 ,
-        ReceiveButton = 6 
-
-
+        Card = 4,
+        PostBlind = 5,
+        ReceiveButton = 6,
+        GameOver = 7
     }
 
     public enum OpponentMove
     {
-        Unknown = 0 ,
-        Fold  = 1 ,
-        Call = 2 ,
-        Bet = 3 
+        Unknown = 0,
+        Fold = 1,
+        Call = 2,
+        Bet = 3
     }
 
     public enum Card
@@ -34,14 +33,14 @@ namespace Pokermatic1000.App
         C4 = 4,
         C5 = 5,
         C6 = 6,
-        C7= 7,
+        C7 = 7,
         C8 = 8,
         C9 = 8,
         CT = 10,
         CJ = 11,
         CQ = 12,
         CK = 13,
-        CA = 14	
+        CA = 14
     }
 
     public sealed class Convertor
@@ -58,15 +57,15 @@ namespace Pokermatic1000.App
             {
                 return OpponentMove.Call;
             }
-            
+
             if (ptr == 'b')
             {
                 return OpponentMove.Bet;
             }
-            return  OpponentMove.Unknown;
+            return OpponentMove.Unknown;
         }
 
-        
+
 
         public Card ConvertToCard(string input)
         {
@@ -90,13 +89,14 @@ namespace Pokermatic1000.App
 
         public Command ConvertToCommand(string input)
         {
-            if (String.Compare("ReceiveChips", input, true) == 0) return Command.ReceiveChips;
+            if (String.Compare("Receive_Chips", input, true) == 0) return Command.ReceiveChips;
             if (String.Compare("Card", input, true) == 0) return Command.Card;
-            if (String.Compare("OpponentCard", input, true) == 0) return Command.OpponentCard;
-            if (String.Compare("OpponentMove", input, true) == 0) return Command.OpponentMove;
-            if (String.Compare("PostBlind", input, true) == 0) return Command.PostBlind;
-            if (String.Compare("ReceiveButton", input, true) == 0) return Command.ReceiveButton;
-            if (String.Compare("ReceiveChips", input, true) == 0) return Command.ReceiveChips;
+            if (String.Compare("Opponent_Card", input, true) == 0) return Command.OpponentCard;
+            if (String.Compare("Opponent_Move", input, true) == 0) return Command.OpponentMove;
+            if (String.Compare("Post_Blind", input, true) == 0) return Command.PostBlind;
+            if (String.Compare("Receive_Button", input, true) == 0) return Command.ReceiveButton;
+            if (String.Compare("Receive_Chips", input, true) == 0) return Command.ReceiveChips;
+            if (String.Compare("Game_Over", input, true) == 0) return Command.GameOver;
 
             return Command.Unknown;
         }
