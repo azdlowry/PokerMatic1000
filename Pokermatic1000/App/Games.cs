@@ -32,12 +32,7 @@ namespace Pokermatic1000.App
 
         public void Card(Card card)
         {
-            if (_currentHandLog != null)
-            {
-                Trace.TraceWarning("Last hand: {0}", _currentHandLog.ToString());
-                _previousHands.Add(_currentHandLog);
-                _currentHandLog = null;
-            }
+            UpdateHandLog();
 
             _strategy = new StrategyFactory()
                 .Get(_opponentName, _startingChipCount, _handLimit, card, _chipCount) as HighMidLowStrategy;
@@ -74,14 +69,19 @@ namespace Pokermatic1000.App
 
         public void OnGameOver()
         {
+            UpdateHandLog();
+            // Log hands
+            Trace.TraceWarning("Game over .. {0} chips remaining", _chipCount);
+        }
+
+        private void UpdateHandLog()
+        {
             if (_currentHandLog != null)
             {
-                Trace.TraceWarning("Last hand: {0}", _currentHandLog.ToString());
+                Trace.TraceWarning("Last hand with {0}: {1}", _opponentName, _currentHandLog.ToString());
                 _previousHands.Add(_currentHandLog);
                 _currentHandLog = null;
             }
-            // Log hands
-            Trace.TraceWarning("Game over .. {0} chips remaining", _chipCount);
         }
 
         public OpponentMove GetMove()
