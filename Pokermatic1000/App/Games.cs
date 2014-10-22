@@ -67,15 +67,21 @@ namespace Pokermatic1000.App
             _currentHandLog.WeReceiveButton = true;
         }
 
-        public void OnReceiveChips(int p)
+        public void OnReceiveChips(int chipCount)
         {
-            _chipCount = _chipCount;
+            _chipCount = chipCount;
         }
 
         public void OnGameOver()
         {
+            if (_currentHandLog != null)
+            {
+                Trace.TraceWarning("Last hand: {0}", _currentHandLog.ToString());
+                _previousHands.Add(_currentHandLog);
+                _currentHandLog = null;
+            }
             // Log hands
-            Trace.TraceWarning("Game over .. {} chips remaining", _chipCount);
+            Trace.TraceWarning("Game over .. {0} chips remaining", _chipCount);
         }
 
         public OpponentMove GetMove()
