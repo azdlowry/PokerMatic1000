@@ -10,26 +10,24 @@ namespace Pokermatic1000.App.Strategies
     {
         private readonly Card _ourCard;
         private readonly Card _lowCard;
-        private readonly Card _hightCard;
-        private bool hasBet = false;
+        private readonly Card _highCard;
         private Func<OpponentMove> _subStrategy;
         private int _timesToBet;
 
-        public HighMidLowStrategy(Card ourCard, int chipCount, Card lowCard = Card.C3, Card hightCard = Card.CT)
+        public HighMidLowStrategy(Card ourCard, int chipCount, Card lowCard = Card.C3, Card highCard = Card.CT)
         {
             _ourCard = ourCard;
             _lowCard = lowCard;
-            _hightCard = hightCard;
+            _highCard = highCard;
             _chipCount = chipCount;
 
-            if (_ourCard > _hightCard)
+            if (_ourCard > _highCard)
             {
                 Trace.TraceWarning("Selecting High Strategy");
                 _timesToBet = GetTimesToBet(ourCard);
                 _subStrategy = () =>
                     {
                         var nextMove = _timesToBet == 0 ? OpponentMove.Call : OpponentMove.Bet;
-                        hasBet = true;
                         _timesToBet--;
                         return nextMove;
                     };
