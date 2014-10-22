@@ -13,10 +13,10 @@ namespace Pokermatic1000.Tests.Strategies
     public class HighMidLowStrategyTests
     {
         [TestMethod]
-        public void Ace_Bets100TimesThenCalls()
+        public void Ace_Bets201TimesThenCalls()
         {
             var strategy = new HighMidLowStrategy(Card.CA,1);
-            MakeBet(strategy,100);
+            MakeBet(strategy,201);
             Assert.AreEqual(strategy.Move(), OpponentMove.Call);
         }
 
