@@ -21,6 +21,31 @@ namespace Pokermatic1000.App
             _startingChipCount = startingChipCount;
             _handLimit = handLimit;
         }
-        
+
+
+        internal void OnOpponentCard(Card card)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OnOpponentMove(OpponentMove opponentMove)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OnPostBlind()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OnReceiveButton()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void OnReceiveChips(int p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

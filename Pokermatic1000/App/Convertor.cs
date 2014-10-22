@@ -5,6 +5,19 @@ using System.Web;
 
 namespace Pokermatic1000.App
 {
+    public enum Command
+    {
+        Unknown = 0 ,
+        OpponentCard = 1 ,
+        ReceiveChips = 2 ,
+        OpponentMove = 3,
+        Card = 4 ,
+        PostBlind = 5 ,
+        ReceiveButton = 6 
+
+
+    }
+
     public enum OpponentMove
     {
         Unknown = 0 ,
@@ -53,11 +66,7 @@ namespace Pokermatic1000.App
             return  OpponentMove.Unknown;
         }
 
-        private static char GetFirstChr(string input)
-        {
-            var ptr = input.ToLower().Trim().ToCharArray().First();
-            return ptr;
-        }
+        
 
         public Card ConvertToCard(string input)
         {
@@ -77,6 +86,38 @@ namespace Pokermatic1000.App
             if (ptr == 'k') return Card.CK;
             if (ptr == 'a') return Card.CA;
             return Card.Unknown;
+        }
+
+        public Command ConvertToCommand(string input)
+        {
+            if (String.Compare("ReceiveChips", input, true) == 0) return Command.ReceiveChips;
+            if (String.Compare("Card", input, true) == 0) return Command.Card;
+            if (String.Compare("OpponentCard", input, true) == 0) return Command.OpponentCard;
+            if (String.Compare("OpponentMove", input, true) == 0) return Command.OpponentMove;
+            if (String.Compare("PostBlind", input, true) == 0) return Command.PostBlind;
+            if (String.Compare("ReceiveButton", input, true) == 0) return Command.ReceiveButton;
+            if (String.Compare("ReceiveChips", input, true) == 0) return Command.ReceiveChips;
+
+            return Command.Unknown;
+        }
+
+        private static char GetFirstChr(string input)
+        {
+            var ptr = input.ToLower().Trim().ToCharArray().First();
+            return ptr;
+        }
+
+
+
+        internal static int ConvertToInt(string DATA)
+        {
+            int i;
+            if (Int32.TryParse(DATA, out i))
+            {
+                return i;
+            }
+            return 0;
+
         }
     }
 }

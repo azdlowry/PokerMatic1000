@@ -11,6 +11,8 @@ namespace Pokermatic1000.Controllers
     public class HomeController : Controller
     {
         public static Games CurrentGame; 
+        public static Convertor Convertor = new Convertor();
+
 
         public ActionResult Index()
         {
@@ -39,6 +41,33 @@ namespace Pokermatic1000.Controllers
         public object Update(string COMMAND, string DATA)
         {
             Trace.TraceInformation("Update({0}, {1})", COMMAND, DATA);
+            var cmd = Convertor.ConvertToCommand(COMMAND);
+            switch (cmd)
+            {
+                case Command.OpponentCard:
+                    CurrentGame.OnOpponentCard(Convertor.ConvertToCard(DATA));
+                    break;
+
+                case Command.OpponentMove:
+                    CurrentGame.OnOpponentMove(Convertor.ConvertToOpponentMove(DATA));
+                    break;
+
+                case Command.PostBlind:
+                    CurrentGame.OnPostBlind();
+                    break;
+
+                case Command.ReceiveButton:
+                    CurrentGame.OnReceiveButton();
+                    break;
+                case Command.ReceiveChips:
+                    CurrentGame.OnReceiveChips(Convertor.ConvertToInt(DATA));
+                    break;
+                case Command.Unknown:
+
+                    break;
+            }
+
+            
             return null;
         }
     }
