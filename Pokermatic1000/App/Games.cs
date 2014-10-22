@@ -54,6 +54,7 @@ namespace Pokermatic1000.App
 
         public void OnPostBlind()
         {
+            _chipCount--;
             _currentHandLog.WePostedBlind = true;
         }
 
@@ -71,7 +72,7 @@ namespace Pokermatic1000.App
         {
             UpdateHandLog();
             // Log hands
-            Trace.TraceWarning("Game over .. {0} chips remaining", _chipCount);
+            Trace.TraceWarning("Game over {0} .. {1} chips remaining", _chipCount > 0 ? "WINNER" : "LOOSER", _chipCount);
         }
 
         private void UpdateHandLog()
