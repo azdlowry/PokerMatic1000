@@ -10,7 +10,7 @@ namespace Pokermatic1000.Controllers
 {
     public class HomeController : Controller
     {
-        public static Games CurrentGame; 
+        public static Games CurrentGame;
         public static Convertor Convertor = new Convertor();
 
 
@@ -31,9 +31,9 @@ namespace Pokermatic1000.Controllers
 
         [HttpGet]
         public object Move()
-        {          
-            var rtn = CurrentGame.GetMove();
-            Trace.TraceInformation("Move <- {0}", rtn );
+        {
+            var rtn = CurrentGame.GetMove().ToString().ToUpper();
+            Trace.TraceInformation("Move <- {0}", rtn);
             return rtn;
         }
 
@@ -71,7 +71,7 @@ namespace Pokermatic1000.Controllers
                     break;
             }
 
-            
+
             return null;
         }
     }
