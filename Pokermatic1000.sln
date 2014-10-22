@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokermatic1000", "Pokermatic1000\Pokermatic1000.csproj", "{2E0CB218-5870-4A53-9F80-D79AF16B4FFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokermatic1000.Tests", "Pokermatic1000.Tests\Pokermatic1000.Tests.csproj", "{81D49E7A-84E5-4017-83B6-422E1D9BF161}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E0CB218-5870-4A53-9F80-D79AF16B4FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E0CB218-5870-4A53-9F80-D79AF16B4FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E0CB218-5870-4A53-9F80-D79AF16B4FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E0CB218-5870-4A53-9F80-D79AF16B4FFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D49E7A-84E5-4017-83B6-422E1D9BF161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D49E7A-84E5-4017-83B6-422E1D9BF161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D49E7A-84E5-4017-83B6-422E1D9BF161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D49E7A-84E5-4017-83B6-422E1D9BF161}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
