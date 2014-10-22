@@ -21,6 +21,9 @@ namespace Pokermatic1000.App
 
         private HandLog _currentHandLog;
         private ICollection<HandLog> _previousHands = new List<HandLog>();
+        private IDictionary<Card, int> _totalOpponentBets = new Dictionary<Card, int>();
+        private IDictionary<Card, int> _totalOpponentHands = new Dictionary<Card, int>();
+        private IDictionary<Card, int> _totalOpponentCalls = new Dictionary<Card, int>();
 
         public Games(string opponentName, int startingChipCount, int handLimit)
         {
@@ -43,6 +46,22 @@ namespace Pokermatic1000.App
         public void OnOpponentCard(Card card)
         {
             _currentHandLog.OpponentCard = card;
+
+            if (!_totalOpponentBets.ContainsKey(card))
+                _totalOpponentBets[card] = 0;
+
+            _totalOpponentBets[card] += _currentHandLog.OpponentBets;
+
+            if (!_totalOpponentHands.ContainsKey(card))
+                _totalOpponentHands[card] = 0;
+
+            _totalOpponentHands[card]++;
+
+            if (!_totalOpponentCalls.ContainsKey(card))
+                _totalOpponentCalls[card] = 0;
+
+            if (_currentHandLog.OpponentCalled)
+                _totalOpponentCalls[card]++;
         }
 
         public void OnOpponentMove(OpponentMove opponentMove)
@@ -72,6 +91,16 @@ namespace Pokermatic1000.App
         {
             UpdateHandLog();
             // Log hands
+
+            foreach (var totalOpponentBet in _totalOpponentBets)
+            {
+                Trace.TraceWarning("Card {0} -> Total {1} Hands {2} Average {3}",
+                    totalOpponentBet.Key,
+                    totalOpponentBet.Value,
+                    _totalOpponentHands[totalOpponentBet.Key],
+                    totalOpponentBet.Value / _totalOpponentHands[totalOpponentBet.Key]);
+            }
+
             Trace.TraceWarning("Game over {0} .. {1} chips remaining", _chipCount > 0 ? "WINNER" : "LOOSER", _chipCount);
         }
 
