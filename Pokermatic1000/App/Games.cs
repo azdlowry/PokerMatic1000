@@ -30,7 +30,7 @@ namespace Pokermatic1000.App
             _chipCount = startingChipCount;
         }
 
-        internal void Card(Card card)
+        public void Card(Card card)
         {
             if (_currentHandLog != null)
             {
@@ -45,40 +45,40 @@ namespace Pokermatic1000.App
             _currentHandLog = new HandLog() { OurCard = card };
         }
 
-        internal void OnOpponentCard(Card card)
+        public void OnOpponentCard(Card card)
         {
             _currentHandLog.OpponentCard = card;
         }
 
-        internal void OnOpponentMove(OpponentMove opponentMove)
+        public void OnOpponentMove(OpponentMove opponentMove)
         {
             if (opponentMove == OpponentMove.Bet) _currentHandLog.OpponentBets++;
             if (opponentMove == OpponentMove.Call) _currentHandLog.OpponentCalled = true;
             if (opponentMove == OpponentMove.Fold) _currentHandLog.OpponentFolded = true;
         }
 
-        internal void OnPostBlind()
+        public void OnPostBlind()
         {
             _currentHandLog.WePostedBlind = true;
         }
 
-        internal void OnReceiveButton()
+        public void OnReceiveButton()
         {
             _currentHandLog.WeReceiveButton = true;
         }
 
-        internal void OnReceiveChips(int p)
+        public void OnReceiveChips(int p)
         {
             _chipCount = _chipCount;
         }
 
-        internal void OnGameOver()
+        public void OnGameOver()
         {
             // Log hands
             Trace.TraceWarning("Game over .. {} chips remaining", _chipCount);
         }
 
-        internal OpponentMove GetMove()
+        public OpponentMove GetMove()
         {
             if (_strategy == null)
             {
