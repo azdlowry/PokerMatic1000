@@ -51,6 +51,41 @@ namespace Pokermatic1000.Tests.Convertors
             }
         }
 
+        [TestMethod]
+        public void converts_card_to_CARD()
+        {
+            var inputs = new Dictionary<string, Card>();
+            inputs["2"] = Card.C2;
+            inputs[" 2"] = Card.C2;
+            inputs["3"] = Card.C3;
+            inputs["3 "] = Card.C3;
+            inputs["4"] = Card.C4;
+            inputs["5"] = Card.C5;
+            inputs["6"] = Card.C6;
+            inputs["7"] = Card.C7;
+            inputs["8"] = Card.C8;
+            inputs["9"] = Card.C9;
+            inputs["t"] = Card.CT;
+            inputs["T"] = Card.CT;
+            inputs["j"] = Card.CJ;
+            inputs["q"] = Card.CQ;
+            inputs["Q"] = Card.CQ;
+            inputs["k"] = Card.CK;
+            inputs["a"] = Card.CA;
+
+
+
+
+
+            foreach (var input in inputs.Keys)
+            {
+                var result = new Convertor().ConvertToCard(input);
+                Assert.AreEqual(inputs[input], result, "failed using " + input);
+            }
+
+
+        }
+
         
     }
 }

@@ -35,7 +35,7 @@ namespace Pokermatic1000.App
     {
         public OpponentMove ConvertToOpponentMove(string input)
         {
-            var ptr = input.ToLower().Trim().ToCharArray().First();
+            var ptr = GetFirstChr(input);
             if (ptr == 'f')
             {
                 return OpponentMove.Fold;
@@ -51,6 +51,32 @@ namespace Pokermatic1000.App
                 return OpponentMove.Bet;
             }
             return  OpponentMove.Unknown;
+        }
+
+        private static char GetFirstChr(string input)
+        {
+            var ptr = input.ToLower().Trim().ToCharArray().First();
+            return ptr;
+        }
+
+        public Card ConvertToCard(string input)
+        {
+            var ptr = GetFirstChr(input);
+
+            if (ptr == '2') return Card.C2;
+            if (ptr == '3') return Card.C3;
+            if (ptr == '4') return Card.C4;
+            if (ptr == '5') return Card.C5;
+            if (ptr == '6') return Card.C6;
+            if (ptr == '7') return Card.C7;
+            if (ptr == '8') return Card.C8;
+            if (ptr == '9') return Card.C9;
+            if (ptr == 't') return Card.CT;
+            if (ptr == 'j') return Card.CJ;
+            if (ptr == 'q') return Card.CQ;
+            if (ptr == 'k') return Card.CK;
+            if (ptr == 'a') return Card.CA;
+            return Card.Unknown;
         }
     }
 }
