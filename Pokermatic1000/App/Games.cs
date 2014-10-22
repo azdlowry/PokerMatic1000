@@ -64,7 +64,7 @@ namespace Pokermatic1000.App
 
         public void OnReceiveChips(int chipCount)
         {
-            _chipCount = chipCount;
+            _chipCount += chipCount;
         }
 
         public void OnGameOver()
