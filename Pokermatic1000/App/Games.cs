@@ -13,9 +13,9 @@ namespace Pokermatic1000.App
 
     public class Games : IGames
     {
-        private string _opponentName;
-        private int _startingChipCount;
-        private int _handLimit;
+        private readonly string _opponentName;
+        private readonly int _startingChipCount;
+        private readonly int _handLimit;
         private HighMidLowStrategy _strategy;
         private int _chipCount;
 
@@ -88,6 +88,7 @@ namespace Pokermatic1000.App
         {
             if (_strategy == null)
             {
+                Trace.TraceError("Getting move with no strategy, revert to dumb.");
                 return OpponentMove.Call;
             }
             else
